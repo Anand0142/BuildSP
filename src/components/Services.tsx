@@ -1,8 +1,12 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Services = () => {
+  const [headerRef, headerVisible] = useScrollAnimation(0.3);
+  const [gridRef, gridVisible] = useScrollAnimation(0.2);
+
   const services = [
     {
       title: "AI/ML Solutions",
@@ -38,8 +42,13 @@ const Services = () => {
     <section id="services" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-electric to-cyber bg-clip-text text-transparent">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ease-out ${
+            headerVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-95'
+          }`}
+        >
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-electric to-cyber bg-clip-text text-transparent glow-text">
             Our Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -48,20 +57,30 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div 
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+        >
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group bg-card/50 backdrop-blur-sm border-border/50 hover:border-electric/50 transition-all duration-500 hover-lift overflow-hidden"
+              className={`group bg-card/50 backdrop-blur-sm border-border/50 hover:border-electric/50 transition-all duration-700 hover-lift overflow-hidden transform ${
+                gridVisible 
+                  ? 'opacity-100 translate-y-0 scale-100' 
+                  : 'opacity-0 translate-y-20 scale-95'
+              }`}
+              style={{
+                transitionDelay: `${index * 200}ms`
+              }}
             >
-              <CardContent className="p-8">
+              <CardContent className="p-8 relative">
                 {/* Service Icon & Title */}
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="text-4xl animate-float" style={{ animationDelay: `${index * 0.2}s` }}>
+                  <div className="text-4xl animate-float transform transition-all duration-500 group-hover:scale-110" style={{ animationDelay: `${index * 0.2}s` }}>
                     {service.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-electric transition-colors duration-300">
+                    <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-electric transition-colors duration-300 glow-text">
                       {service.title}
                     </h3>
                     <div className={`h-1 w-20 bg-gradient-to-r ${service.color} rounded-full transform origin-left transition-transform duration-500 group-hover:scale-x-150`}></div>
@@ -69,7 +88,7 @@ const Services = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
                   {service.description}
                 </p>
 
@@ -78,7 +97,8 @@ const Services = () => {
                   {service.features.map((feature, featureIndex) => (
                     <div 
                       key={featureIndex}
-                      className="flex items-center gap-2 text-sm"
+                      className="flex items-center gap-2 text-sm transform transition-all duration-300 group-hover:translate-x-2"
+                      style={{ transitionDelay: `${featureIndex * 100}ms` }}
                     >
                       <div className="w-2 h-2 bg-electric rounded-full animate-pulse"></div>
                       <span className="text-foreground/80 group-hover:text-foreground transition-colors duration-300">
@@ -96,13 +116,15 @@ const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-16">
+        <div className={`text-center mt-16 transition-all duration-1000 delay-500 ${
+          gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           <p className="text-lg text-muted-foreground mb-6">
             Need a custom solution? We've got you covered.
           </p>
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-electric to-cyber hover:from-cyber hover:to-electric text-background font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-electric/50"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-electric to-cyber hover:from-cyber hover:to-electric text-background font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-electric/50 transform"
           >
             Discuss Your Project
             <span className="animate-bounce">→</span>

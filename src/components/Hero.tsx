@@ -53,27 +53,27 @@ const Hero = () => {
 
       {/* Main Content */}
       <div className="container mx-auto px-4 text-center relative z-10">
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`transition-all duration-1500 ease-out ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-95'}`}>
           
           {/* Hero Logo */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-8 transform transition-all duration-1000 delay-300">
             <Logo size="xl" className="animate-float" />
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-electric via-white to-cyber bg-clip-text text-transparent leading-tight">
-            Build<span className="text-neon">Sphere</span>
+          <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-electric via-white to-cyber bg-clip-text text-transparent leading-tight transition-all duration-1200 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Build<span className="text-neon glow-text">Sphere</span>
           </h1>
 
           {/* Animated Slogan */}
-          <div className="h-16 md:h-20 flex items-center justify-center mb-8">
+          <div className={`h-16 md:h-20 flex items-center justify-center mb-8 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <p className="text-lg md:text-2xl font-medium text-muted-foreground transition-all duration-500 glow-text">
               {slogans[currentSlogan]}
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className={`text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Empowering innovators by transforming bold ideas into custom-built digital realities. 
             Specializing in <span className="text-electric font-semibold">AI/ML</span>, 
             <span className="text-cyber font-semibold"> Data Science</span>, 
@@ -82,11 +82,11 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 delay-1100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <Button 
               onClick={scrollToContact}
               size="lg"
-              className="bg-gradient-to-r from-electric to-cyber hover:from-cyber hover:to-electric text-background font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-electric/50 text-lg"
+              className="bg-gradient-to-r from-electric to-cyber hover:from-cyber hover:to-electric text-background font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-electric/50 text-lg transform"
             >
               Start Your Project
             </Button>
@@ -95,22 +95,22 @@ const Hero = () => {
               variant="outline"
               size="lg"
               onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-electric text-electric hover:bg-electric hover:text-background px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 text-lg"
+              className="border-electric text-electric hover:bg-electric hover:text-background px-8 py-4 rounded-full transition-all duration-300 hover:scale-110 text-lg transform"
             >
               View Portfolio
             </Button>
           </div>
 
           {/* Stats or Features */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className={`mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto transition-all duration-1000 delay-1300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {[
               { number: "100+", label: "Projects Delivered" },
               { number: "24/7", label: "Support Available" },
               { number: "99%", label: "Client Satisfaction" },
               { number: "48h", label: "Quick Turnaround" }
             ].map((stat, index) => (
-              <div key={index} className="text-center group cursor-pointer">
-                <div className="text-2xl md:text-3xl font-bold text-electric group-hover:text-cyber transition-colors duration-300 mb-2">
+              <div key={index} className="text-center group cursor-pointer transform transition-all duration-300 hover:scale-110">
+                <div className="text-2xl md:text-3xl font-bold text-electric group-hover:text-cyber transition-colors duration-300 mb-2 glow-text">
                   {stat.number}
                 </div>
                 <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
@@ -124,7 +124,7 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-electric rounded-full flex justify-center">
+        <div className="w-6 h-10 border-2 border-electric rounded-full flex justify-center glow-text">
           <div className="w-1 h-3 bg-electric rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
