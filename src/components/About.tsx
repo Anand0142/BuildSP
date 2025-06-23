@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import ScrollVelocity from '@/components/ui/ScrollVelocity';
 
 const About = () => {
   const values = [
@@ -105,6 +106,8 @@ const About = () => {
             </div>
           ))}
         </div>
+
+        {/* BuildSphere ScrollVelocity Animation */}
 
         {/* What We Offer */}
       </div>

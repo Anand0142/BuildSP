@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import Magnet from './ui/Magnet';
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -189,12 +189,14 @@ const Portfolio = () => {
           <p className="text-lg text-muted-foreground mb-6">
             Want to see your project here? Let's make it happen.
           </p>
-          <button 
-  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#FCFC3F] to-[#FCFC3F] hover:from-[#FAD543] hover:to-[#43FAF7] text-background font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#43FAF7]/50 transform group"
->
-  Start Your Project
-</button>
+          <Magnet padding={200} disabled={false} magnetStrength={50}>
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#FCFC3F] to-[#FCFC3F] hover:from-[#FAD543] hover:to-[#43FAF7] text-background font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#43FAF7]/50 transform group"
+            >
+              Start Your Project
+            </button>
+          </Magnet>
         </div>
       </div>
     </section>
