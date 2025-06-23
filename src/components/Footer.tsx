@@ -1,9 +1,11 @@
-
 import React from 'react';
 import Logo from './Logo';
+import { useNavigate } from 'react-router-dom';
+//import ScrollVelocity from './ScrollVelocity';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
 
   const footerLinks = {
     services: [
@@ -15,6 +17,7 @@ const Footer = () => {
     company: [
       { name: 'About Us', href: '#about' },
       { name: 'Portfolio', href: '#portfolio' },
+      { name: 'Team', href: '/team' },
       { name: 'Contact', href: '#contact' },
       { name: 'Privacy Policy', href: '#' }
     ],
@@ -51,13 +54,6 @@ const Footer = () => {
               Empowering innovators by transforming bold ideas into custom-built digital realities.
             </p>
             <div className="flex space-x-2">
-              {/* Social Media Placeholder */}
-              <div className="w-8 h-8 bg-electric/20 rounded-full flex items-center justify-center text-electric text-sm">
-                📧
-              </div>
-              <div className="w-8 h-8 bg-cyber/20 rounded-full flex items-center justify-center text-cyber text-sm">
-                💬
-              </div>
             </div>
           </div>
 
@@ -84,12 +80,21 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-sm text-muted-foreground hover:text-electric transition-colors duration-300"
-                  >
-                    {link.name}
-                  </button>
+                  {link.name === 'Team' ? (
+                    <button
+                      onClick={() => navigate('/team')}
+                      className="text-sm text-muted-foreground hover:text-electric transition-colors duration-300"
+                    >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => scrollToSection(link.href)}
+                      className="text-sm text-muted-foreground hover:text-electric transition-colors duration-300"
+                    >
+                      {link.name}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -117,23 +122,21 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="pt-8 border-t border-border/50">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0">
             <div className="text-sm text-muted-foreground">
               © {currentYear} BuildSphere Agency. All rights reserved.
             </div>
             
             <div className="flex items-center space-x-6 text-sm text-muted-foreground">
-              <span>Built with ❤️ by BuildSphere</span>
               <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-matrix rounded-full animate-pulse"></div>
-                <span>System Online</span>
-              </div>
+            </div>
             </div>
           </div>
         </div>
 
         {/* Background Decoration */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric to-transparent opacity-50"></div>
+
       </div>
     </footer>
   );

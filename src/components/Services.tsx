@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -11,30 +10,30 @@ const Services = () => {
     {
       title: "AI/ML Solutions",
       description: "Custom machine learning models, neural networks, and AI-powered applications tailored to your specific needs.",
-      icon: "🧠",
+      ///icon: "🧠",
       features: ["Deep Learning", "Computer Vision", "NLP", "Predictive Analytics"],
-      color: "from-electric to-cyan-400"
+      color: "from-neon to-orange-400"
     },
     {
       title: "Data Science",
       description: "Transform raw data into actionable insights with advanced analytics, visualization, and data processing.",
-      icon: "📊",
+     /// icon: "📊",
       features: ["Data Analytics", "Visualization", "Statistical Modeling", "Big Data"],
-      color: "from-cyber to-purple-400"
+      color: "from-neon to-orange-400"
     },
     {
       title: "Full Stack Development",
       description: "End-to-end web and mobile applications using cutting-edge technologies and frameworks.",
-      icon: "💻",
+      //icon: "💻",
       features: ["React/Next.js", "Node.js", "Database Design", "Cloud Deployment"],
-      color: "from-neon to-yellow-400"
+      color: "from-neon to-orange-400"
     },
     {
       title: "Academic Projects",
       description: "Research-based projects, thesis implementations, and academic paper reproductions with precision.",
-      icon: "🎓",
+      //icon: "🎓",
       features: ["Research Papers", "Thesis Projects", "Academic Writing", "Peer Review"],
-      color: "from-matrix to-green-400"
+      color: "from-neon to-orange-400"
     }
   ];
 
@@ -64,11 +63,9 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className={`group bg-card/50 backdrop-blur-sm border-border/50 hover:border-electric/50 transition-all duration-700 hover-lift overflow-hidden transform ${
-                gridVisible 
-                  ? 'opacity-100 translate-y-0 scale-100' 
-                  : 'opacity-0 translate-y-20 scale-95'
-              }`}
+              className={`group bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-700 overflow-hidden transform
+                ${gridVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-95'}
+                hover:shadow-[0_0_12px_2px_#43FAF7]`}
               style={{
                 transitionDelay: `${index * 200}ms`
               }}
@@ -77,13 +74,13 @@ const Services = () => {
                 {/* Service Icon & Title */}
                 <div className="flex items-start gap-4 mb-6">
                   <div className="text-4xl animate-float transform transition-all duration-500 group-hover:scale-110" style={{ animationDelay: `${index * 0.2}s` }}>
-                    {service.icon}
+                    
                   </div>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-electric transition-colors duration-300 glow-text">
+                    <h3 className="text-xl md:text-2xl font-bold mb-2 transition-all duration-300 group-hover:glow-text group-hover:text-electric">
                       {service.title}
                     </h3>
-                    <div className={`h-1 w-20 bg-gradient-to-r ${service.color} rounded-full transform origin-left transition-transform duration-500 group-hover:scale-x-150`}></div>
+                    <div className={`h-1 w-15 bg-gradient-to-r ${service.color} rounded-full transform origin-left transition-transform duration-300 group-hover:scale-x-100`}></div>
                   </div>
                 </div>
 
@@ -123,12 +120,12 @@ const Services = () => {
             Need a custom solution? We've got you covered.
           </p>
           <button 
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-electric to-cyber hover:from-cyber hover:to-electric text-background font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-electric/50 transform"
-          >
-            Discuss Your Project
-            <span className="animate-bounce">→</span>
-          </button>
+  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#FCFC3F] to-[#FCFC3F] hover:from-[#FAD543] hover:to-[#43FAF7] text-background font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#43FAF7]/50 transform"
+>
+  Discuss Your Project
+  <span className="animate-bounce">→</span>
+</button>
         </div>
       </div>
     </section>

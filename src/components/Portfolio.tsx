@@ -16,7 +16,7 @@ const Portfolio = () => {
       category: "ai",
       description: "Machine learning system that increased sales by 40% through personalized product recommendations.",
       tech: ["Python", "TensorFlow", "React", "Node.js"],
-      image: "🤖",
+      //image: "🤖",
       metrics: ["40% ↑ Sales", "85% Accuracy", "2M+ Users"]
     },
     {
@@ -24,7 +24,7 @@ const Portfolio = () => {
       category: "data",
       description: "Interactive dashboard processing 1M+ data points daily with real-time visualizations.",
       tech: ["Python", "D3.js", "PostgreSQL", "Redis"],
-      image: "📈",
+     // image: "📈",
       metrics: ["1M+ Data Points", "< 100ms Response", "99.9% Uptime"]
     },
     {
@@ -32,7 +32,7 @@ const Portfolio = () => {
       category: "fullstack",
       description: "Complete social media management solution with scheduling, analytics, and team collaboration.",
       tech: ["Next.js", "Node.js", "MongoDB", "AWS"],
-      image: "📱",
+     // image: "📱",
       metrics: ["50K+ Users", "10M+ Posts", "150+ Integrations"]
     },
     {
@@ -40,7 +40,7 @@ const Portfolio = () => {
       category: "academic",
       description: "Research project implementing LSTM networks for climate pattern prediction with 92% accuracy.",
       tech: ["Python", "PyTorch", "Jupyter", "GIS"],
-      image: "🌍",
+     // image: "🌍",
       metrics: ["92% Accuracy", "Published Paper", "Peer Reviewed"]
     },
     {
@@ -48,7 +48,7 @@ const Portfolio = () => {
       category: "ai",
       description: "Automated quality control system for manufacturing using deep learning and computer vision.",
       tech: ["OpenCV", "PyTorch", "FastAPI", "Docker"],
-      image: "👁️",
+      //image: "👁️",
       metrics: ["99.5% Accuracy", "50% Cost Reduction", "24/7 Operation"]
     },
     {
@@ -56,7 +56,7 @@ const Portfolio = () => {
       category: "data",
       description: "Algorithmic trading system with risk management and real-time market analysis.",
       tech: ["Python", "Pandas", "Alpha Vantage", "React"],
-      image: "💰",
+      //image: "💰",
       metrics: ["15% ROI", "Low Risk", "Automated Trading"]
     }
   ];
@@ -93,27 +93,27 @@ const Portfolio = () => {
 
         {/* Category Filter */}
         <div 
-          ref={filterRef}
-          className={`flex flex-wrap justify-center gap-4 mb-12 transition-all duration-1000 delay-300 ${
-            filterVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          {categories.map((category, index) => (
-            <Button
-              key={category.id}
-              variant={selectedCategory === category.id ? "default" : "outline"}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-110 ${
-                selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-electric to-cyber text-background hover:from-cyber hover:to-electric shadow-lg shadow-electric/30'
-                  : 'border-electric text-electric hover:bg-electric hover:text-background hover:shadow-lg hover:shadow-electric/30'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {category.label} ({category.count})
-            </Button>
-          ))}
-        </div>
+  ref={filterRef}
+  className={`flex flex-wrap justify-center gap-4 mb-12 transition-all duration-1000 delay-300 ${
+    filterVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+  }`}
+>
+  {categories.map((category, index) => (
+    <Button
+      key={category.id}
+      variant={selectedCategory === category.id ? "default" : "outline"}
+      onClick={() => setSelectedCategory(category.id)}
+      className={`px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-110 ${
+        selectedCategory === category.id
+          ? 'bg-gradient-to-r from-[#F59126] to-[#FCA13F] text-background hover:from-[#FCFC3F] hover:to-[#FCFC3F] shadow-lg shadow-[#FCFC3F]/30'
+          : 'border-[#43FAF7] text-[#FCF6F0] hover:bg-[#43FAF7] hover:text-background hover:shadow-lg hover:shadow-[#FCFC3F]/30'
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      {category.label} ({category.count})
+    </Button>
+  ))}
+</div>
 
         {/* Projects Grid */}
         <div 
@@ -135,13 +135,13 @@ const Portfolio = () => {
               <CardContent className="p-6 relative">
                 {/* Project Image/Icon */}
                 <div className="text-6xl mb-6 text-center group-hover:scale-125 transition-transform duration-500 animate-float" style={{ animationDelay: `${index * 0.5}s` }}>
-                  {project.image}
+                 
                 </div>
 
                 {/* Project Title */}
-                <h3 className="text-xl font-bold mb-3 group-hover:text-electric transition-colors duration-300 glow-text">
-                  {project.title}
-                </h3>
+                <h3 className="text-xl font-bold mb-3 text-[#F8F6EF] group-hover:text-[#FAD543] transition-colors duration-300">
+  {project.title}
+</h3>
 
                 {/* Description */}
                 <p className="text-muted-foreground mb-4 text-sm leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
@@ -190,12 +190,11 @@ const Portfolio = () => {
             Want to see your project here? Let's make it happen.
           </p>
           <button 
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-electric to-cyber hover:from-cyber hover:to-electric text-background font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-electric/50 transform"
-          >
-            Start Your Project
-            <span className="animate-bounce">✨</span>
-          </button>
+  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#FCFC3F] to-[#FCFC3F] hover:from-[#FAD543] hover:to-[#43FAF7] text-background font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#43FAF7]/50 transform group"
+>
+  Start Your Project
+</button>
         </div>
       </div>
     </section>

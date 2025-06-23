@@ -1,0 +1,184 @@
+.chroma-grid {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    --x: 50%;
+    --y: 50%;
+    --r: 220px;
+    background: transparent !important;
+}
+
+@media (max-width: 1124px) {
+    .chroma-grid {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      padding: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .chroma-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+}
+
+.chroma-card {
+    width: 85%;
+    min-width: 0;
+    height: auto;
+    border-radius: 18px;
+    overflow: hidden;
+    border: none;
+    outline: 2px solid #444;
+    outline-offset: 0px;
+    background: #000 !important;
+    transition: outline-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.08);
+    margin: 0 auto;
+}
+
+.chroma-card:hover {
+    outline-color: var(--card-border, #fff);
+    box-shadow: 0 6px 32px 0 rgba(0,0,0,0.16);
+}
+
+.chroma-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y),
+        var(--spotlight-color, rgba(38, 35, 35, 0.18)),
+        transparent 70%);
+    pointer-events: none;
+    opacity: 0.7;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+.chroma-card:hover::before {
+    opacity: 1;
+}
+
+.chroma-img-wrapper {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    background: transparent;
+    transition: background 0.3s ease;
+}
+
+.chroma-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    filter: grayscale(1) contrast(1.1);
+    transition: filter 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.chroma-card:hover .chroma-img-wrapper img {
+    filter: grayscale(0) contrast(1);
+}
+
+.chroma-info {
+    position: relative;
+    z-index: 1;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    row-gap: 0.25rem;
+    column-gap: 0.75rem;
+}
+
+.chroma-info .name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+    text-align: center;
+}
+
+.chroma-info .role {
+    color: #aaa;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.chroma-info .handle {
+    color: #aaa;
+}
+
+.chroma-overlay,
+.chroma-fade {
+    opacity: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+}
+
+.chroma-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    mask-image: radial-gradient(circle var(--r) at var(--x) var(--y),
+        transparent 0%,
+        transparent 15%,
+        rgba(0, 0, 0, 0.10) 30%,
+        rgba(0, 0, 0, 0.22) 45%,
+        rgba(0, 0, 0, 0.35) 60%,
+        rgba(0, 0, 0, 0.50) 75%,
+        rgba(0, 0, 0, 0.68) 88%,
+        white 100%);
+    -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y),
+        transparent 0%,
+        transparent 15%,
+        rgba(0, 0, 0, 0.10) 30%,
+        rgba(0, 0, 0, 0.22) 45%,
+        rgba(0, 0, 0, 0.35) 60%,
+        rgba(0, 0, 0, 0.50) 75%,
+        rgba(0, 0, 0, 0.68) 88%,
+        white 100%);
+}
+
+.chroma-fade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 4;
+    mask-image: radial-gradient(circle var(--r) at var(--x) var(--y),
+        white 0%,
+        white 15%,
+        rgba(255, 255, 255, 0.90) 30%,
+        rgba(255, 255, 255, 0.78) 45%,
+        rgba(255, 255, 255, 0.65) 60%,
+        rgba(255, 255, 255, 0.50) 75%,
+        rgba(255, 255, 255, 0.32) 88%,
+        transparent 100%);
+    -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y),
+        white 0%,
+        white 15%,
+        rgba(255, 255, 255, 0.90) 30%,
+        rgba(255, 255, 255, 0.78) 45%,
+        rgba(255, 255, 255, 0.65) 60%,
+        rgba(255, 255, 255, 0.50) 75%,
+        rgba(255, 255, 255, 0.32) 88%,
+        transparent 100%);
+    transition: opacity 0.25s ease;
+}

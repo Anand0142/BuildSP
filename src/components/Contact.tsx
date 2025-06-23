@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -11,7 +10,6 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
-    project: '',
     message: ''
   });
 
@@ -24,7 +22,6 @@ const Contact = () => {
 Name: ${formData.name}
 Email: ${formData.email}
 Phone: ${formData.phone}
-Project Type: ${formData.project}
 Message: ${formData.message}
 
 I'd like to discuss my project with you!`;
@@ -39,7 +36,6 @@ I'd like to discuss my project with you!`;
       name: '',
       email: '',
       phone: '',
-      project: '',
       message: ''
     });
   };
@@ -53,25 +49,25 @@ I'd like to discuss my project with you!`;
 
   const contactInfo = [
     {
-      icon: "📧",
+      //icon: "📧",
       title: "Email",
       value: "buildhspere.agency@gmail.com",
       link: "mailto:buildhspere.agency@gmail.com"
     },
     {
-      icon: "📱",
+      //icon: "📱",
       title: "WhatsApp",
       value: "+91 83098 29743",
       link: "https://wa.me/918309829743"
     },
     {
-      icon: "🕒",
+      //icon: "🕒",
       title: "Response Time",
       value: "Within 24 hours",
       link: null
     },
     {
-      icon: "🌍",
+      //icon: "🌍",
       title: "Availability",
       value: "24/7 Support",
       link: null
@@ -138,24 +134,6 @@ I'd like to discuss my project with you!`;
                       placeholder="+91 12345 67890"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="project" className="block text-sm font-medium mb-2">Project Type *</label>
-                    <select
-                      id="project"
-                      name="project"
-                      value={formData.project}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 bg-background/50 border border-border/50 rounded-md focus:border-electric transition-colors duration-300 text-foreground"
-                    >
-                      <option value="">Select project type</option>
-                      <option value="AI/ML">AI/ML Solution</option>
-                      <option value="Data Science">Data Science</option>
-                      <option value="Full Stack">Full Stack Development</option>
-                      <option value="Academic">Academic Project</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
                 </div>
 
                 <div>
@@ -173,11 +151,12 @@ I'd like to discuss my project with you!`;
                 </div>
 
                 <Button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-electric to-cyber hover:from-cyber hover:to-electric text-background font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-electric/50"
-                >
-                  Send Message via WhatsApp 💬
-                </Button>
+  type="submit"
+  className="w-full bg-gradient-to-r from-[#F99135] to-[#35E6F9] hover:from-[#35E6F9] hover:to-[#F99135] text-background font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#6DF935]/50"
+>
+
+  Send Message via WhatsApp
+</Button>
               </form>
             </CardContent>
           </Card>
@@ -191,7 +170,7 @@ I'd like to discuss my project with you!`;
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
                     <div key={index} className="flex items-start gap-4">
-                      <div className="text-2xl">{info.icon}</div>
+                      <div className="text-2xl"></div>
                       <div>
                         <h4 className="font-semibold text-foreground mb-1">{info.title}</h4>
                         {info.link ? (
@@ -217,9 +196,9 @@ I'd like to discuss my project with you!`;
             <div className="space-y-4">
               <Button
                 onClick={() => window.open('https://wa.me/918309829743', '_blank')}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105"
+                className="w-full bg-gradient-to-r from-[#F99135] to-[#35E6F9] hover:from-[#35E6F9] hover:to-[#F99135] text-background font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#6DF935]/50"
               >
-                💬 Chat on WhatsApp
+                Chat on WhatsApp
               </Button>
               
               <Button
@@ -227,19 +206,9 @@ I'd like to discuss my project with you!`;
                 variant="outline"
                 className="w-full border-electric text-electric hover:bg-electric hover:text-background font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105"
               >
-                📧 Send Email
+                Send Email
               </Button>
             </div>
-
-            {/* CTA Message */}
-            <Card className="bg-gradient-to-br from-electric/10 to-cyber/10 border-electric/30">
-              <CardContent className="p-6 text-center">
-                <h4 className="font-bold text-lg mb-2 text-electric">Ready to Start?</h4>
-                <p className="text-sm text-muted-foreground">
-                  "Let's connect and make your next project a success story!"
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
